@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
@@ -50,6 +51,23 @@ public class Tests : PageTest
 		await Expect(_page.GetByRole(AriaRole.Link, new(){ Name = expectedItem })).ToBeVisibleAsync();
 	}
 	
+	[TestCase("apollo systeemhalter zwart", "Apollo systeemhalters, set")]
+	[TestCase("maxxgarden stokparasol zwart", "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart")]
+	public async Task LoginAndCheckCart(string searchTerm, string expectedItem)
+	{
+		await Login();
+		await PutItemsInCart(searchTerm, expectedItem);
+	}
+	
+	[TestCase("apollo systeemhalter zwart", "Apollo systeemhalters, set")]
+	public async Task CheckIfItemIsRemoved(string searchTerm, string expectedItem)
+	{
+		await Login();
+		await PutItemsInCart(searchTerm, expectedItem);
+		await _page.Locator("div").Filter(new() { HasTextRegex = new Regex("^12345678910MeerAantalUiterlijk 1 augustus in huis$") }).GetByTestId("remove-item").ClickAsync();
+		await Expect(_page.GetByRole(AriaRole.Link, new() { Name = expectedItem })).ToBeHiddenAsync();
+	}
+	
 	private async Task Login()
 	{
 		await _page.GotoAsync("https://www.bol.com/be/nl/");
@@ -72,14 +90,6 @@ public class Tests : PageTest
 		await _page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" }).ClickAsync();
 		await _page.GetByTestId("continue-shopping").ClickAsync();
 		await _page.Locator("[data-test=\"basket-button\"]").ClickAsync();
-	}
-	
-	[TestCase("apollo systeemhalter zwart", "Apollo systeemhalters, set")]
-	[TestCase("maxxgarden stokparasol zwart", "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart")]
-	public async Task LoginAndCheckCart(string searchTerm, string expectedItem)
-	{
-		await Login();
-		await PutItemsInCart(searchTerm, expectedItem);
 	}
 
 	[TearDown]

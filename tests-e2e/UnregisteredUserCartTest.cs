@@ -21,19 +21,36 @@ public class Tests : PageTest
 	}
 
 	[Test]
-	public async Task CheckIfCartContainsCorrectItems()
+	public async Task CheckIfCartContainsCorrectItem()
 	{
 		await _page.GotoAsync("https://www.bol.com/be/nl/");
-        await _page.GetByRole(AriaRole.Button, new() { Name = "Alles accepteren" }).ClickAsync();
-        await _page.GetByRole(AriaRole.Button, new() { Name = "Doorgaan" }).ClickAsync();
-        await _page.Locator("[data-test=\"search_input_trigger\"]").ClickAsync();
-        await _page.Locator("[data-test=\"search_input_trigger\"]").FillAsync("parasol");
-        await _page.Locator("[data-test=\"search_input_trigger\"]").PressAsync("Enter");
-        await _page.GetByRole(AriaRole.Heading, new() { Name = "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart", Exact = true }).ClickAsync();
-        await _page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" }).ClickAsync();
-        await _page.GetByTestId("continue-shopping").ClickAsync();
-        await _page.Locator("[data-test=\"basket-button\"]").ClickAsync();
-        await Expect(_page.GetByRole(AriaRole.Link, new() { Name = "MaxxGarden Stokparasol - tuin" })).ToBeVisibleAsync();
+		await _page.GetByRole(AriaRole.Button, new() { Name = "Alles accepteren" }).ClickAsync();
+		await _page.GetByRole(AriaRole.Button, new() { Name = "Doorgaan" }).ClickAsync();
+		await _page.Locator("[data-test=\"search_input_trigger\"]").ClickAsync();
+		await _page.Locator("[data-test=\"search_input_trigger\"]").FillAsync("maxxgarden stokparasol zwart");
+		await _page.Locator("[data-test=\"search_input_trigger\"]").PressAsync("Enter");
+		await _page.GetByRole(AriaRole.Heading, new() { Name = "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart", Exact = true }).ClickAsync();
+		await _page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" }).ClickAsync();
+		await _page.GetByTestId("continue-shopping").ClickAsync();
+		await _page.Locator("[data-test=\"basket-button\"]").ClickAsync();
+		await Expect(_page.GetByRole(AriaRole.Link, new() { Name = "MaxxGarden Stokparasol - tuin" })).ToBeVisibleAsync();
+	}
+	
+	[TestCase("apollo systeemhalter zwart", "Apollo systeemhalters, set")]
+	[TestCase("maxxgarden stokparasol zwart", "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart")]
+	public async Task CheckIfCartContainsCorrectItem(string searchTerm, string expectedItem)
+	{
+		await _page.GotoAsync("https://www.bol.com/be/nl/");
+		await _page.GetByRole(AriaRole.Button, new() { Name = "Alles accepteren" }).ClickAsync();
+		await _page.GetByRole(AriaRole.Button, new() { Name = "Doorgaan" }).ClickAsync();
+		await _page.Locator("[data-test=\"search_input_trigger\"]").ClickAsync();
+		await _page.Locator("[data-test=\"search_input_trigger\"]").FillAsync(searchTerm);
+		await _page.Locator("[data-test=\"search_input_trigger\"]").PressAsync("Enter");
+		await _page.GetByRole(AriaRole.Heading, new() { Name = expectedItem }).ClickAsync();
+		await _page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" }).ClickAsync();
+		await _page.GetByTestId("continue-shopping").ClickAsync();
+		await _page.Locator("[data-test=\"basket-button\"]").ClickAsync();
+		await Expect(_page.GetByRole(AriaRole.Link, new(){ Name = expectedItem })).ToBeVisibleAsync();
 	}
 	
 	[TearDown]

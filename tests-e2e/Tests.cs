@@ -14,9 +14,6 @@ public class Tests : PageTest
 	private CartPage _cartPage;
 	private LoginPage _loginPage;
 	
-	private readonly string _email = "pxl3account@protonmail.com";
-	private readonly string _password = "h.Sj5u3758yMXYh";
-	
 	[SetUp]
 	public async Task Setup()
 	{

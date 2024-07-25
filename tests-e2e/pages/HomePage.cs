@@ -11,6 +11,7 @@ namespace tests_e2e.Pages
 		private readonly ILocator _addToCartButton;
 		private readonly ILocator _continueShoppingButton;
 		private readonly ILocator _basketButton;
+		private readonly ILocator _loginButton;
 		private readonly string baseUrl = "https://www.bol.com/be/nl/";
 		
 		public HomePage(IPage page)
@@ -22,6 +23,7 @@ namespace tests_e2e.Pages
 			_addToCartButton = page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" });
 			_continueShoppingButton = page.GetByTestId("continue-shopping");
 			_basketButton = page.Locator("[data-test=\"basket-button\"]");
+			_loginButton = page.GetByRole(AriaRole.Link, new() { Name = "Inloggen" });
 
 		}
 		
@@ -56,6 +58,11 @@ namespace tests_e2e.Pages
 		public async Task GoToCartPage()
 		{
 			await _basketButton.ClickAsync();
+		}
+		
+		public async Task GoToLoginPage()
+		{
+			await _loginButton.ClickAsync();
 		}
 	}
 }

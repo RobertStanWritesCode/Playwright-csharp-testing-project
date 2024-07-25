@@ -13,26 +13,13 @@
           "NUnit": "3.14.0",
           "NUnit.Analyzers": "3.9.0",
           "NUnit3TestAdapter": "4.5.0",
-          "coverlet.collector": "6.0.0",
-          "DotEnv": "0.0.1.1"
+          "coverlet.collector": "6.0.0"
         },
         "runtime": {
           "tests-e2e.dll": {}
         }
       },
       "coverlet.collector/6.0.0": {},
-      "DotEnv/0.0.1.1": {
-        "dependencies": {
-          "SimpleJson": "0.38.0",
-          "System.IO.Abstractions": "1.4.0.86"
-        },
-        "runtime": {
-          "lib/net40/DotEnv.dll": {
-            "assemblyVersion": "0.0.1.1",
-            "fileVersion": "0.0.1.1"
-          }
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -377,16 +364,7 @@
       },
       "NUnit.Analyzers/3.9.0": {},
       "NUnit3TestAdapter/4.5.0": {},
-      "SimpleJson/0.38.0": {},
       "System.ComponentModel.Annotations/5.0.0": {},
-      "System.IO.Abstractions/1.4.0.86": {
-        "runtime": {
-          "lib/net35/System.IO.Abstractions.dll": {
-            "assemblyVersion": "1.4.0.86",
-            "fileVersion": "1.4.0.86"
-          }
-        }
-      },
       "System.Reflection.Metadata/1.6.0": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Text.Encodings.Web/6.0.0": {
@@ -414,13 +392,6 @@
       "sha512": "sha512-tW3lsNS+dAEII6YGUX/VMoJjBS1QvsxqJeqLaJXub08y1FSjasFPtQ4UBUsudE9PNrzLjooClMsPtY2cZLdXpQ==",
       "path": "coverlet.collector/6.0.0",
       "hashPath": "coverlet.collector.6.0.0.nupkg.sha512"
-    },
-    "DotEnv/0.0.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6Dzbp8/xTWDNqEJBc8vTwdL2Ydelq3NWQFonpfbr8ZnQ8b24oCjhHLb29dZlY3+VoGw0C1ZmM6BOc58u9Hqqfw==",
-      "path": "dotenv/0.0.1.1",
-      "hashPath": "dotenv.0.0.1.1.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "type": "package",
@@ -527,26 +498,12 @@
       "path": "nunit3testadapter/4.5.0",
       "hashPath": "nunit3testadapter.4.5.0.nupkg.sha512"
     },
-    "SimpleJson/0.38.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Qvxm8S8fXa6/U6GLm1CJtDIqFFYKKw8cVaqMA/0I68q2avYZijt1IeEw6Y6PD2u5Hln1WrIR30ZseZOAWI8Ykg==",
-      "path": "simplejson/0.38.0",
-      "hashPath": "simplejson.0.38.0.nupkg.sha512"
-    },
     "System.ComponentModel.Annotations/5.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "path": "system.componentmodel.annotations/5.0.0",
       "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
-    },
-    "System.IO.Abstractions/1.4.0.86": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Qjm6uyJAWR/Ct1Uoy1MLkMRZq8EBWTN/9dcRQVCEPFiEv9IK0LCCt1VkvOpGKcRWllJO0Y1sd9NcqGjkcECz2Q==",
-      "path": "system.io.abstractions/1.4.0.86",
-      "hashPath": "system.io.abstractions.1.4.0.86.nupkg.sha512"
     },
     "System.Reflection.Metadata/1.6.0": {
       "type": "package",

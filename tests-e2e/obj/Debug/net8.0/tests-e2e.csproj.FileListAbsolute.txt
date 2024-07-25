@@ -405,5 +405,3 @@ C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\obj\
 C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\obj\Debug\net8.0\tests-e2e.pdb
 C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\obj\Debug\net8.0\tests-e2e.genruntimeconfig.cache
 C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\obj\Debug\net8.0\ref\tests-e2e.dll
-C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\bin\Debug\net8.0\DotEnv.dll
-C:\Users\rober\Documents\GitHub\Playwright-csharp-testing-project\tests-e2e\bin\Debug\net8.0\System.IO.Abstractions.dll

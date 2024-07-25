@@ -8,19 +8,6 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
-      "DotEnv/0.0.1.1": {
-        "type": "package",
-        "dependencies": {
-          "SimpleJson": "0.38.0",
-          "System.IO.Abstractions": "1.4.0.86"
-        },
-        "compile": {
-          "lib/net40/DotEnv.dll": {}
-        },
-        "runtime": {
-          "lib/net40/DotEnv.dll": {}
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
         "compile": {
@@ -445,9 +432,6 @@
           "build/netcoreapp3.1/NUnit3TestAdapter.props": {}
         }
       },
-      "SimpleJson/0.38.0": {
-        "type": "package"
-      },
       "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
@@ -459,15 +443,6 @@
           "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "System.IO.Abstractions/1.4.0.86": {
-        "type": "package",
-        "compile": {
-          "lib/net35/System.IO.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/net35/System.IO.Abstractions.dll": {}
         }
       },
       "System.Reflection.Metadata/1.6.0": {
@@ -598,18 +573,6 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.0.nupkg.sha512",
         "coverlet.collector.nuspec"
-      ]
-    },
-    "DotEnv/0.0.1.1": {
-      "sha512": "6Dzbp8/xTWDNqEJBc8vTwdL2Ydelq3NWQFonpfbr8ZnQ8b24oCjhHLb29dZlY3+VoGw0C1ZmM6BOc58u9Hqqfw==",
-      "type": "package",
-      "path": "dotenv/0.0.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dotenv.0.0.1.1.nupkg.sha512",
-        "dotenv.nuspec",
-        "lib/net40/DotEnv.dll"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
@@ -1501,19 +1464,6 @@
         "nunit_256.png"
       ]
     },
-    "SimpleJson/0.38.0": {
-      "sha512": "Qvxm8S8fXa6/U6GLm1CJtDIqFFYKKw8cVaqMA/0I68q2avYZijt1IeEw6Y6PD2u5Hln1WrIR30ZseZOAWI8Ykg==",
-      "type": "package",
-      "path": "simplejson/0.38.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "SimpleJson.psm1",
-        "content/SimpleJson.cs.pp",
-        "simplejson.0.38.0.nupkg.sha512",
-        "simplejson.nuspec"
-      ]
-    },
     "System.ComponentModel.Annotations/5.0.0": {
       "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
@@ -1602,18 +1552,6 @@
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "System.IO.Abstractions/1.4.0.86": {
-      "sha512": "Qjm6uyJAWR/Ct1Uoy1MLkMRZq8EBWTN/9dcRQVCEPFiEv9IK0LCCt1VkvOpGKcRWllJO0Y1sd9NcqGjkcECz2Q==",
-      "type": "package",
-      "path": "system.io.abstractions/1.4.0.86",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net35/System.IO.Abstractions.dll",
-        "system.io.abstractions.1.4.0.86.nupkg.sha512",
-        "system.io.abstractions.nuspec"
       ]
     },
     "System.Reflection.Metadata/1.6.0": {
@@ -1751,8 +1689,7 @@
       "NUnit >= 3.14.0",
       "NUnit.Analyzers >= 3.9.0",
       "NUnit3TestAdapter >= 4.5.0",
-      "coverlet.collector >= 6.0.0",
-      "dotenv >= 0.0.1.1"
+      "coverlet.collector >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -1827,10 +1764,6 @@
           "coverlet.collector": {
             "target": "Package",
             "version": "[6.0.0, )"
-          },
-          "dotenv": {
-            "target": "Package",
-            "version": "[0.0.1.1, )"
           }
         },
         "imports": [
@@ -1852,27 +1785,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'DotEnv 0.0.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "DotEnv",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.IO.Abstractions 1.4.0.86' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.IO.Abstractions",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

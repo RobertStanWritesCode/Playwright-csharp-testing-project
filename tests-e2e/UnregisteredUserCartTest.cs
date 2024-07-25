@@ -1,13 +1,10 @@
-using System.Diagnostics;
 using Microsoft.Playwright;
-using NUnit.Framework;
+using Microsoft.Playwright.NUnit;
 
 namespace tests_e2e;
 
-public class Tests
+public class Tests : PageTest
 {
-	private string baseUrl = "https://www.bol.com/be/nl/";
-	private IPlaywright _playwright;
 	private IBrowser _browser;
 	private IBrowserContext _context;
 	private IPage _page;
@@ -15,8 +12,7 @@ public class Tests
 	[SetUp]
 	public async Task Setup()
 	{
-		_playwright = await Playwright.CreateAsync();
-		_browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+		_browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
 		{
 			Headless = false
 		});
@@ -25,18 +21,27 @@ public class Tests
 	}
 
 	[Test]
-	public async Task NavigatetoPage()
+	public async Task CheckIfCartContainsCorrectItems()
 	{
-		await _page.GotoAsync(baseUrl);
-		await _page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-		Assert.That(_page.Url, Is.EqualTo(baseUrl));
+		await _page.GotoAsync("https://www.bol.com/be/nl/");
+        await _page.GetByRole(AriaRole.Button, new() { Name = "Alles accepteren" }).ClickAsync();
+        await _page.GetByRole(AriaRole.Button, new() { Name = "Doorgaan" }).ClickAsync();
+        await _page.Locator("[data-test=\"search_input_trigger\"]").ClickAsync();
+        await _page.Locator("[data-test=\"search_input_trigger\"]").FillAsync("parasol");
+        await _page.Locator("[data-test=\"search_input_trigger\"]").PressAsync("Enter");
+        await _page.GetByRole(AriaRole.Heading, new() { Name = "MaxxGarden Stokparasol - tuin en balkon parasol - opdraaisysteem - 300 cm - Zwart", Exact = true }).ClickAsync();
+        await _page.Locator("[data-test=\"default-buy-block\"]").GetByRole(AriaRole.Button, new() { Name = "In winkelwagen" }).ClickAsync();
+        await _page.GetByTestId("continue-shopping").ClickAsync();
+        await _page.Locator("[data-test=\"basket-button\"]").ClickAsync();
+        await Expect(_page.GetByRole(AriaRole.Link, new() { Name = "MaxxGarden Stokparasol - tuin" })).ToBeVisibleAsync();
 	}
 	
-	// [TearDown]
-	// 	public async Task TearDown()
-	// 	{
-	// 		await _context.CloseAsync();
-	// 		await _browser.CloseAsync();
-	// 		_playwright.Dispose();
-	// 	}
+	[TearDown]
+		public async Task TearDown()
+		{
+			await _context.CloseAsync();
+			await _browser.CloseAsync();
+			await _page.CloseAsync();
+		}
+	
 }
